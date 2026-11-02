@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anastasio Carrera Oria | Tasio, para siempre</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --fondo: #11110f;
+    --fondo2: #1b1a17;
+    --dorado: #c7a76b;
+    --dorado-claro: #e4cf9f;
+    --texto: #e9e4d9;
+    --gris: #aaa69c;
+    --blanco: #fffdf8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* NAVEGACIÓN */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(17,17,15,.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #c7a76b30;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--dorado);
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+nav a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* PORTADA */
+
+#inicio {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 120px 20px 80px;
+    background:
+    radial-gradient(ellipse at center, #393024 0%, #1b1a17 40%, #11110f 80%);
+}
+
+#inicio::before,
+#inicio::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #c7a76b20;
+    border-radius: 50%;
+}
+
+#inicio::after {
+    width: 420px;
+    height: 420px;
+}
+
+.portada {
+    position: relative;
+    z-index: 2;
+}
+
+.portada .estrella {
+    color: var(--dorado);
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.portada h1 {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    color: var(--dorado-claro);
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.apodo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--dorado);
+    margin-top: 15px;
+}
+
+.fechas {
+    margin-top: 40px;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--gris);
+}
+
+.linea {
+    width: 80px;
+    height: 1px;
+    background: var(--dorado);
+    margin: 35px auto;
+}
+
+.frase-portada {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    color: var(--texto);
+    max-width: 550px;
+    line-height: 1.6;
+    margin: auto;
+}
+
+.bajar {
+    display: inline-block;
+    margin-top: 65px;
+    color: var(--dorado);
+    font-size: 12px;
+    letter-spacing: 3px;
+    animation: flotar 3s infinite;
+}
+
+/* SECCIONES */
+
+section {
+    padding: 110px 9%;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--dorado-claro);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: var(--gris);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 65px;
+}
+
+/* RECUERDO */
+
+#recuerdo {
+    background: var(--fondo2);
+}
+
+.recuerdo-contenido {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.recuerdo-contenido .simbolo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    color: var(--dorado);
+    margin-bottom: 25px;
+}
+
+.recuerdo-contenido p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    line-height: 1.9;
+    color: var(--texto);
+    margin-bottom: 25px;
+}
+
+.recuerdo-contenido .firma {
+    color: var(--dorado);
+    font-style: italic;
+    margin-top: 35px;
+}
+
+/* GALERÍA */
+
+#fotografias {
+    background: var(--fondo);
+}
+
+.galeria {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+.foto {
+    position: relative;
+    height: 380px;
+    padding: 10px;
+    background: #25231e;
+    border: 1px solid #c7a76b55;
+    transition: .4s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.foto:hover {
+    transform: translateY(-7px);
+    border-color: var(--dorado);
+    box-shadow: 0 15px 40px #0008;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(12%) brightness(.9);
+    transition: .5s;
+}
+
+.foto:hover img {
+    transform: scale(1.04);
+    filter: sepia(0%) brightness(1);
+}
+
+.foto .etiqueta {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 25px 15px 15px;
+    background: linear-gradient(transparent, #000c);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* VISOR DE FOTOS */
+
+#visor {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000f;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+#visor img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid var(--dorado);
+}
+
+#cerrar {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* VELA */
+
+#luz {
+    background: var(--fondo2);
+    text-align: center;
+}
+
+.texto-luz {
+    max-width: 650px;
+    margin: auto;
+    color: var(--gris);
+    line-height: 2;
+    font-size: 14px;
+}
+
+.vela-contenedor {
+    margin: 55px auto 30px;
+    width: 150px;
+    height: 230px;
+    position: relative;
+}
+
+.llama {
+    width: 32px;
+    height: 48px;
+    background: linear-gradient(to top, #ff8c21, #ffe7a0, #fff);
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    top: 0;
+    left: 59px;
+    transform-origin: bottom;
+    filter: drop-shadow(0 0 15px #ffb84d);
+    animation: llama 1.5s infinite alternate;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.llama.encendida {
+    opacity: 1;
+}
+
+.llama::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    left: 10px;
+    top: 12px;
+}
+
+.cera {
+    position: absolute;
+    width: 85px;
+    height: 130px;
+    left: 32px;
+    bottom: 20px;
+    border-radius: 7px 7px 12px 12px;
+    background: linear-gradient(90deg, #b7a98c, #f1e6ce, #c6b798);
+    box-shadow: 0 0 25px #0008;
+}
+
+.mecha {
+    position: absolute;
+    top: 92px;
+    left: 73px;
+    width: 3px;
+    height: 12px;
+    background: #33251b;
+}
+
+.boton-luz {
+    padding: 14px 30px;
+    border: 1px solid var(--dorado);
+    background: transparent;
+    color: var(--dorado-claro);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.boton-luz:hover {
+    background: var(--dorado);
+    color: var(--fondo);
+}
+
+#mensaje-luz {
+    margin-top: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    color: var(--dorado-claro);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* CARTA */
+
+#carta {
+    background: var(--fondo);
+}
+
+.papel {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px;
+    border: 1px solid #c7a76b55;
+    background: linear-gradient(145deg, #222019, #191813);
+    box-shadow: 0 15px 50px #0005;
+}
+
+.papel h3 {
+    color: var(--dorado);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.papel p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    line-height: 1.9;
+    margin-bottom: 22px;
+    color: #ded8cb;
+}
+
+.papel .firma {
+    text-align: right;
+    margin-top: 40px;
+    color: var(--dorado-claro);
+    font-style: italic;
+}
+
+/* DESPEDIDA */
+
+#despedida {
+    background: radial-gradient(ellipse, #393024, #11110f 75%);
+    text-align: center;
+    padding: 140px 20px;
+}
+
+#despedida h2 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: var(--dorado-claro);
+    margin-bottom: 25px;
+}
+
+#despedida p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-style: italic;
+    color: var(--gris);
+    line-height: 1.7;
+}
+
+#despedida .estrella {
+    color: var(--dorado);
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+/* PIE */
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    background: #0b0b09;
+    color: #77736a;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+footer span {
+    color: var(--dorado);
+}
+
+/* ANIMACIONES */
+
+@keyframes llama {
+    from {
+        transform: rotate(-5deg) scale(.95);
+    }
+    to {
+        transform: rotate(5deg) scale(1.05);
+    }
+}
+
+@keyframes flotar {
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 13px;
+    }
+
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    section {
+        padding: 85px 7%;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .foto {
+        height: 350px;
+    }
+
+    .recuerdo-contenido p {
+        font-size: 21px;
+    }
+
+    .papel {
+        padding: 30px 23px;
+    }
+
+    .papel p {
+        font-size: 21px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ -->
+
+<nav>
+
+    <div class="logo">A. C. O.</div>
+
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#recuerdo">Su recuerdo</a></li>
+        <li><a href="#fotografias">Fotografías</a></li>
+        <li><a href="#luz">Una luz</a></li>
+        <li><a href="#carta">Carta</a></li>
+    </ul>
+
+</nav>
+
+<!-- PORTADA -->
+
+<section id="inicio">
+
+    <div class="portada">
+
+        <div class="estrella">✧</div>
+
+        <h1>Anastasio</h1>
+
+        <div class="apodo">«Tasio»</div>
+
+        <div class="linea"></div>
+
+        <p class="fechas">
+            9 MARZO 1937 &nbsp; — &nbsp; 7 AGOSTO 2026
+        </p>
+
+        <div class="linea"></div>
+
+        <p class="frase-portada">
+            «Hay personas que dejan de estar a nuestro lado,
+            pero jamás dejan de formar parte de nosotros».
+        </p>
+
+        <a href="#recuerdo" class="bajar">
+            DESCUBRIR SU RECUERDO ↓
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SU RECUERDO -->
+
+<section id="recuerdo">
+
+    <h2 class="titulo">Su recuerdo</h2>
+
+    <p class="subtitulo">
+        Una vida que merece ser recordada
+    </p>
+
+    <div class="recuerdo-contenido">
+
+        <div class="simbolo">✧</div>
+
+        <p>
+            Hay nombres que nunca se olvidan.
+            Voces que permanecen en nuestra memoria.
+            Miradas que seguimos encontrando en nuestros recuerdos.
+        </p>
+
+        <p>
+            Hoy este pequeño espacio está dedicado a ti,
+            Anastasio Carrera Oria, nuestro querido Tasio.
+        </p>
+
+        <p>
+            No hay palabras suficientes para expresar
+            lo que significa alguien que ha formado parte
+            de nuestra vida y de nuestra historia.
+        </p>
+
+        <p>
+            Aunque ya no podamos compartir contigo
+            nuevos momentos, siempre podremos volver
+            a los que vivimos a tu lado.
+        </p>
+
+        <p class="firma">
+            Tu recuerdo siempre tendrá un lugar aquí.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOTOGRAFÍAS -->
+
+<section id="fotografias">
+
+    <h2 class="titulo">Una vida en imágenes</h2>
+
+    <p class="subtitulo">
+        Cuatro fotografías. Infinitos recuerdos.
+    </p>
+
+    <div class="galeria">
+
+        <div class="foto" onclick="abrirFoto(this)">
+            <img src="./fotos/foto1.jpg" alt="Anastasio Carrera Oria">
+            <div class="etiqueta">Un recuerdo para siempre</div>
+        </div>
+
+        <div class="foto" onclick="abrirFoto(this)">
+            <img src="./fotos/foto2.jpg" alt="Tasio">
+            <div class="etiqueta">Momentos de una vida</div>
+        </div>
+
+        <div class="foto" onclick="abrirFoto(this)">
+            <img src="./fotos/foto3.jpg" alt="Anastasio">
+            <div class="etiqueta">Siempre en nuestra memoria</div>
+        </div>
+
+        <div class="foto" onclick="abrirFoto(this)">
+            <img src="./fotos/foto4.jpg" alt="Tasio, nuestro recuerdo">
+            <div class="etiqueta">Por siempre Tasio</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VISOR -->
+
+<div id="visor" onclick="cerrarFoto(event)">
+
+    <span id="cerrar" onclick="cerrarFoto(event)">×</span>
+
+    <img id="foto-grande" src="" alt="Fotografía de Tasio">
+
+</div>
+
+<!-- VELA -->
+
+<section id="luz">
+
+    <h2 class="titulo">Una luz por ti</h2>
+
+    <p class="subtitulo">
+        Porque hay recuerdos que nunca se apagan
+    </p>
+
+    <p class="texto-luz">
+        Enciende esta pequeña vela en su memoria.
+        Un gesto sencillo para dedicarle un pensamiento,
+        un recuerdo o simplemente unos segundos de silencio.
+    </p>
+
+    <div class="vela-contenedor">
+
+        <div class="llama" id="llama"></div>
+
+        <div class="mecha"></div>
+
+        <div class="cera"></div>
+
+    </div>
+
+    <button class="boton-luz" onclick="encenderVela()" id="botonVela">
+        Encender una luz
+    </button>
+
+    <p id="mensaje-luz">
+        Siempre habrá una luz encendida por ti.
+    </p>
+
+</section>
+
+<!-- CARTA -->
+
+<section id="carta">
+
+    <h2 class="titulo">Unas palabras para ti</h2>
+
+    <p class="subtitulo">
+        Desde el corazón
+    </p>
+
+    <div class="papel">
+
+        <h3>Querido Tasio:</h3>
+
+        <p>
+            Hay despedidas para las que nunca estamos preparados.
+            Por mucho que intentemos encontrar las palabras,
+            siempre parece que falta algo por decir.
+        </p>
+
+        <p>
+            Por eso he querido crear este pequeño rincón.
+            Un lugar donde guardar tus fotografías,
+            recordar tu nombre y tener siempre presente
+            que formas parte de nuestra historia.
+        </p>
+
+        <p>
+            El tiempo podrá pasar y los días seguirán avanzando,
+            pero hay recuerdos que permanecen intactos.
+            Momentos que vuelven a nuestra cabeza,
+            imágenes que nos hacen sonreír y personas
+            a las que llevamos con nosotros allá donde vamos.
+        </p>
+
+        <p>
+            No quería que tu recuerdo quedase únicamente
+            en fotografías guardadas o en conversaciones.
+            Quería dedicarte un espacio propio,
+            algo hecho con cariño y pensado para ti.
+        </p>
+
+        <p>
+            Gracias por formar parte de nuestras vidas.
+            Gracias por cada recuerdo que hoy podemos conservar.
+        </p>
+
+        <p class="firma">
+            Con todo mi cariño,<br>
+            siempre.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- DESPEDIDA -->
+
+<section id="despedida">
+
+    <div class="estrella">✧</div>
+
+    <h2>Hasta siempre, Tasio.</h2>
+
+    <p>
+        Tu historia no termina en una fecha.<br>
+        Continúa en cada persona que te recuerda.
+    </p>
+
+    <div class="linea"></div>
+
+    <p style="font-size:20px;color:var(--dorado)">
+        1937 — 2026
+    </p>
+
+</section>
+
+<footer>
+
+    <p>
+        EN MEMORIA DE
+        <span>ANASTASIO CARRERA ORIA</span>
+    </p>
+
+    <p>«TASIO» · 9 DE MARZO DE 1937 — 7 DE AGOSTO DE 2026</p>
+
+    <p>Hecho con amor para mantener vivo su recuerdo.</p>
+
+</footer>
+
+<script>
+
+/* AMPLIAR FOTOGRAFÍAS */
+
+function abrirFoto(elemento) {
+
+    const imagen = elemento.querySelector('img');
+
+    document.getElementById('foto-grande').src = imagen.src;
+
+    document.getElementById('visor').style.display = 'flex';
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+function cerrarFoto(event) {
+
+    event.stopPropagation();
+
+    document.getElementById('visor').style.display = 'none';
+
+    document.body.style.overflow = 'auto';
+
+}
+
+/* VELA INTERACTIVA */
+
+let velaEncendida = false;
+
+function encenderVela() {
+
+    const llama = document.getElementById('llama');
+
+    const mensaje = document.getElementById('mensaje-luz');
+
+    const boton = document.getElementById('botonVela');
+
+    velaEncendida = !velaEncendida;
+
+    if (velaEncendida) {
+
+        llama.classList.add('encendida');
+
+        mensaje.style.opacity = '1';
+
+        boton.textContent = 'Apagar la luz';
+
+    } else {
+
+        llama.classList.remove('encendida');
+
+        mensaje.style.opacity = '0';
+
+        boton.textContent = 'Encender una luz';
+
+    }
+
+}
+
+/* CERRAR FOTOGRAFÍA CON ESCAPE */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+
+        document.getElementById('visor').style.display = 'none';
+
+        document.body.style.overflow = 'auto';
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
